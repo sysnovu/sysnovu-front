@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sysnovu - Automatización Inteligente para tu Negocio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .benefit-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .benefit-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--dark);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--dark);
+        }
+
+        .btn-white:hover {
+            background: var(--light);
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0d2e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title h2,
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="brand">⚡ SYSNOVU</div>
+            <h1>Automatización Inteligente para tu Negocio</h1>
+            <p class="subtitle">
+                Transformamos tus procesos manuales en flujos de trabajo automatizados. 
+                Ahorra tiempo, reduce errores y escala tu negocio con tecnología de punta.
+            </p>
+            <a href="#contacto" class="btn btn-primary">Comienza Ahora</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones de automatización diseñadas para impulsar tu productividad y crecimiento</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Automatización de Procesos</h3>
+                <p>Elimina tareas repetitivas con bots inteligentes que trabajan 24/7. Desde entrada de datos hasta generación de reportes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Integración de Sistemas</h3>
+                <p>Conecta todas tus herramientas y plataformas en un ecosistema unificado que comparte datos en tiempo real.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Inteligencia de Negocios</h3>
+                <p>Dashboards automáticos y análisis de datos que te dan insights accionables para tomar mejores decisiones.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Flujos de Trabajo</h3>
+                <p>Diseñamos workflows personalizados que optimizan tus operaciones y eliminan cuellos de botella.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Desarrollo Web & Apps</h3>
+                <p>Creamos aplicaciones y plataformas web a medida para tus necesidades específicas de automatización.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Consultoría Estratégica</h3>
+                <p>Te guiamos en tu transformación digital con un roadmap claro y ejecutable para tu negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="section-title">
+            <h2>¿Por qué elegir Sysnovu?</h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-number">1</div>
+                <div class="benefit-content">
+                    <h4>Ahorro de Tiempo</h4>
+                    <p>Reduce hasta un 80% el tiempo dedicado a tareas operativas repetitivas</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">2</div>
+                <div class="benefit-content">
+                    <h4>Menos Errores</h4>
+                    <p>Elimina errores humanos con procesos automatizados y validados</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">3</div>
+                <div class="benefit-content">
+                    <h4>Escalabilidad</h4>
+                    <p>Crece sin límites: los sistemas automatizados escalan con tu negocio</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">4</div>
+                <div class="benefit-content">
+                    <h4>ROI Garantizado</h4>
+                    <p>Recupera tu inversión en meses, no en años, con resultados medibles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contacto">
+        <h2>¿Listo para automatizar tu negocio?</h2>
+        <p>Agenda una consulta gratuita y descubre cómo podemos transformar tus operaciones</p>
+        <a href="mailto:contacto@sysnovu.com" class="btn btn-white">Agendar Consulta Gratis</a>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sysnovu. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
