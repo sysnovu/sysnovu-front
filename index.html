@@ -280,7 +280,8 @@
         .case-card,
         .process-card,
         .logo-strip,
-        .final-box {
+        .final-box,
+        .diagnostic-form {
             border-radius: var(--radius);
         }
 
@@ -559,6 +560,65 @@
             font-size: 1.05rem;
         }
 
+        .diagnostic-form {
+            max-width: 960px;
+            margin: 34px auto 0;
+            text-align: left;
+            padding: 28px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: .92rem;
+            font-weight: 700;
+            color: rgba(255,255,255,.92);
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(3,13,31,.42);
+            color: var(--white);
+            font: inherit;
+            outline: none;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(255,255,255,.42);
+        }
+
+        .form-field textarea {
+            min-height: 132px;
+            resize: vertical;
+        }
+
+        .form-note {
+            margin-top: 16px;
+            color: rgba(255,255,255,.68);
+            font-size: .92rem;
+        }
+
         .contact-links {
             display: flex;
             justify-content: center;
@@ -619,6 +679,14 @@
 
             .btn {
                 width: 100%;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diagnostic-form {
+                padding: 22px;
             }
 
             .final-box {
@@ -879,8 +947,75 @@
             <div class="final-box">
                 <span class="section-tag" style="background:rgba(255,255,255,.08); color:#c7f9ff;">Contacto</span>
                 <h2 class="section-title center">Convierte tu operación en un sistema más rápido, ordenado y escalable</h2>
-                <p>Si hoy tu negocio depende demasiado de tareas manuales, seguimiento disperso o procesos lentos, Sysnovu puede ayudarte a convertir eso en una operación más eficiente con automatización e IA aplicada.</p>
-                <a href="mailto:contacto@sysnovu.com?subject=Diagn%C3%B3stico%20Sysnovu" class="btn btn-primary">Solicitar diagnóstico</a>
+                <p>Cuéntanos qué parte de tu operación quieres ordenar, automatizar o acelerar. Déjanos el contexto y te devolvemos un diagnóstico inicial con una propuesta de siguiente paso.</p>
+                <form class="diagnostic-form" action="mailto:contacto@sysnovu.com?subject=Solicitud%20diagn%C3%B3stico%20Sysnovu" method="post" enctype="text/plain">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="empresa">Empresa</label>
+                            <input id="empresa" name="Empresa" type="text" placeholder="Nombre de la empresa" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="correo">Correo</label>
+                            <input id="correo" name="Correo" type="email" placeholder="tu@empresa.com" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="telefono">WhatsApp o teléfono</label>
+                            <input id="telefono" name="Telefono" type="text" placeholder="Tu número de contacto">
+                        </div>
+                        <div class="form-field">
+                            <label for="sitio">Sitio web</label>
+                            <input id="sitio" name="Sitio web" type="url" placeholder="https://...">
+                        </div>
+                        <div class="form-field">
+                            <label for="proceso">Proceso a mejorar</label>
+                            <select id="proceso" name="Proceso a mejorar" required>
+                                <option value="" selected disabled>Selecciona una opción</option>
+                                <option>Ventas y seguimiento comercial</option>
+                                <option>Operación interna</option>
+                                <option>Atención al cliente</option>
+                                <option>Integración entre herramientas</option>
+                                <option>Reportes y analítica</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-field full">
+                            <label for="problema">¿Qué está pasando hoy?</label>
+                            <textarea id="problema" name="Problema actual" placeholder="Describe el proceso, el cuello de botella o la tarea manual que quieres resolver" required></textarea>
+                        </div>
+                        <div class="form-field full">
+                            <label for="herramientas">Herramientas actuales</label>
+                            <input id="herramientas" name="Herramientas actuales" type="text" placeholder="Ej: WhatsApp, Excel, HubSpot, Gmail, Sheets, ERP...">
+                        </div>
+                        <div class="form-field">
+                            <label for="urgencia">Urgencia</label>
+                            <select id="urgencia" name="Urgencia" required>
+                                <option value="" selected disabled>Selecciona una opción</option>
+                                <option>Alta, lo necesitamos pronto</option>
+                                <option>Media, queremos planearlo bien</option>
+                                <option>Baja, estamos explorando opciones</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="presupuesto">Presupuesto estimado</label>
+                            <select id="presupuesto" name="Presupuesto estimado">
+                                <option value="" selected disabled>Selecciona una opción</option>
+                                <option>Menos de 2 millones COP</option>
+                                <option>2 a 5 millones COP</option>
+                                <option>5 a 10 millones COP</option>
+                                <option>Más de 10 millones COP</option>
+                                <option>Aún no definido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="form-note">Al enviarlo, se abrirá tu correo con esta información lista para mandarse a <strong>contacto@sysnovu.com</strong>.</p>
+                    <div class="hero-actions" style="margin-top:22px; margin-bottom:0; justify-content:center;">
+                        <button type="submit" class="btn btn-primary">Enviar solicitud de diagnóstico</button>
+                    </div>
+                </form>
                 <div class="contact-links">
                     <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
                     <a href="https://www.sysnovu.com" target="_blank" rel="noreferrer">www.sysnovu.com</a>
