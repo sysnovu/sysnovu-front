@@ -155,8 +155,18 @@
             text-decoration: none;
         }
 
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 16px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.10);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+        }
+
         .brand-logo {
-            height: 54px;
+            height: 40px;
             width: auto;
             display: block;
         }
@@ -670,8 +680,13 @@
                 width: 100%;
             }
 
+            .brand-badge {
+                padding: 6px 10px;
+                border-radius: 14px;
+            }
+
             .brand-logo {
-                height: 48px;
+                height: 32px;
             }
 
             .form-grid {
@@ -692,7 +707,9 @@
     <header class="site-header">
         <div class="container nav">
             <a href="#top" class="brand">
-                <img class="brand-logo" src="./sysnovu-logo-completo.png" alt="Sysnovu">
+                <span class="brand-badge">
+                    <img class="brand-logo" src="./sysnovu-logo-completo.png" alt="Sysnovu">
+                </span>
             </a>
             <nav class="nav-links">
                 <a href="#servicios">Servicios</a>
