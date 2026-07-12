@@ -5,241 +5,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Sysnovu | Automatización e IA para operaciones comerciales</title>
     <meta name="description" content="Solicita un diagnóstico inicial de Sysnovu y cuéntanos qué parte de tu operación quieres automatizar, ordenar o acelerar." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
-            --navy: #081D3A;
-            --blue: #1E65FF;
-            --cyan: #00D4FF;
-            --teal: #00BFA5;
-            --light: #F2F4F7;
+            --violet: #7C3AED;
+            --violet-mid: #8B5CF6;
+            --violet-soft: #A78BFA;
+            --indigo: #4F46E5;
+            --cyan: #22D3EE;
+            --dark: #0B0A1F;
+            --dark-mid: #130D2B;
+            --surface: #F8F7FF;
             --white: #ffffff;
-            --text: #0f172a;
-            --muted: #64748b;
-            --gradient-main: linear-gradient(135deg, #1E65FF 0%, #00D4FF 55%, #00BFA5 100%);
-            --gradient-dark: radial-gradient(circle at top left, rgba(30,101,255,.24), transparent 28%), radial-gradient(circle at bottom right, rgba(0,212,255,.18), transparent 26%), linear-gradient(135deg, #081D3A 0%, #0b2343 55%, #081d3a 100%);
-            --radius: 24px;
-            --shadow-soft: 0 24px 60px rgba(8, 29, 58, 0.16);
+            --text: #0B0A1F;
+            --muted: #64748B;
+            --border: rgba(124, 58, 237, 0.10);
+            --card-shadow: 0 4px 32px rgba(124, 58, 237, 0.10), 0 1px 4px rgba(0,0,0,0.04);
+            --gradient-brand: linear-gradient(135deg, #8B5CF6 0%, #4F46E5 100%);
+            --gradient-hero:
+                radial-gradient(ellipse 70% 60% at 15% 25%, rgba(139,92,246,0.30) 0%, transparent 55%),
+                radial-gradient(ellipse 55% 55% at 85% 75%, rgba(79,70,229,0.24) 0%, transparent 55%),
+                linear-gradient(155deg, #0B0A1F 0%, #130D2B 55%, #0B0A1F 100%);
+            --radius: 20px;
+            --radius-sm: 14px;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        .container {
-            width: min(920px, calc(100% - 40px));
-            margin: 0 auto;
-        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--surface); color: var(--text); line-height: 1.6; }
+        .container { width: min(960px, calc(100% - 48px)); margin: 0 auto; }
+
+        /* ─── HEADER ─── */
         .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            backdrop-filter: blur(16px);
-            background: rgba(8, 29, 58, 0.88);
-            border-bottom: 1px solid rgba(255,255,255,.06);
+            position: sticky; top: 0; z-index: 50;
+            backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(4, 2, 10, 0.98);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.22);
+            box-shadow: 0 1px 32px rgba(0,0,0,0.28);
         }
         .nav {
-            min-height: 74px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
+            height: 72px; display: flex; align-items: center;
+            justify-content: space-between; gap: 24px;
         }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: var(--white);
-            text-decoration: none;
-        }
+        .brand { display: flex; align-items: center; text-decoration: none; }
         .brand-logo {
-            height: 40px;
-            width: auto;
-            display: block;
+            height: 56px; width: auto; display: block;
+            filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.55)) brightness(1.15);
         }
-        .brand-text strong {
-            display: block;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-        }
-        .brand-text span {
-            display: block;
-            font-size: .82rem;
-            color: rgba(255,255,255,.65);
-        }
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; align-items: center; gap: 2px; }
         .nav-links a {
-            color: rgba(255,255,255,.82);
-            text-decoration: none;
-            font-weight: 600;
+            color: rgba(255,255,255,0.68); text-decoration: none;
+            font-weight: 500; font-size: 0.92rem; padding: 8px 14px;
+            border-radius: 8px; transition: color 0.18s, background 0.18s;
         }
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+        /* ─── HERO ─── */
         .hero {
-            background: var(--gradient-dark);
-            color: var(--white);
-            padding: 72px 0 40px;
+            background: var(--gradient-hero);
+            color: var(--white); padding: 72px 0 48px;
         }
-        .eyebrow {
-            display: inline-flex;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(255,255,255,.08);
-            border: 1px solid rgba(255,255,255,.14);
-            font-size: .82rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-bottom: 18px;
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 14px; border-radius: 999px;
+            border: 1px solid rgba(139,92,246,0.38);
+            background: rgba(139,92,246,0.12);
+            color: #C4B5FD; font-size: 0.76rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px;
         }
-        h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(2rem, 4vw, 3.4rem);
-            line-height: 1.05;
-            margin-bottom: 18px;
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+            line-height: 1.08; letter-spacing: -0.03em;
+            margin-bottom: 18px; font-weight: 700;
         }
         .hero p {
-            max-width: 760px;
-            color: rgba(255,255,255,.84);
-            font-size: 1.05rem;
+            max-width: 740px; color: rgba(255,255,255,0.76);
+            font-size: 1.04rem; line-height: 1.7;
+        }
+
+        /* ─── PANEL ─── */
+        .panel-wrap {
+            position: relative; z-index: 2;
+            margin-top: -20px; margin-bottom: 80px;
         }
         .panel {
-            margin-top: -18px;
-            margin-bottom: 72px;
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-            padding: 34px;
-            border: 1px solid rgba(8,29,58,.06);
+            background: var(--white); border-radius: var(--radius);
+            box-shadow: var(--card-shadow); padding: 36px;
+            border: 1px solid var(--border);
         }
         .panel h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.45rem; font-weight: 700; margin-bottom: 8px;
         }
         .panel-intro {
-            color: var(--muted);
-            margin-bottom: 28px;
+            color: var(--muted); margin-bottom: 32px; font-size: 0.96rem; line-height: 1.65;
         }
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-        .form-field {
-            display: grid;
-            gap: 8px;
-        }
-        .form-field.full {
-            grid-column: 1 / -1;
-        }
+        .panel-intro strong { color: var(--text); font-weight: 600; }
+
+        /* ─── FORM ─── */
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+        .form-field { display: grid; gap: 7px; }
+        .form-field.full { grid-column: 1 / -1; }
         .form-field label {
-            font-size: .92rem;
-            font-weight: 700;
+            font-size: 0.88rem; font-weight: 700; color: var(--text);
         }
         .form-field input,
         .form-field select,
         .form-field textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(148,163,184,.32);
-            background: #fff;
-            color: var(--text);
-            font: inherit;
+            width: 100%; padding: 13px 15px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid rgba(124,58,237,0.14);
+            background: #fff; color: var(--text);
+            font: inherit; font-size: 0.94rem;
+            outline: none;
+            transition: border-color 0.18s, box-shadow 0.18s;
         }
-        .form-field textarea {
-            min-height: 132px;
-            resize: vertical;
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--violet-mid);
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.12);
         }
+        .form-field input::placeholder,
+        .form-field textarea::placeholder { color: #B0B7C3; }
+        .form-field textarea { min-height: 130px; resize: vertical; }
+        .form-field select { appearance: none; cursor: pointer; }
+
+        .form-divider {
+            grid-column: 1 / -1; height: 1px;
+            background: rgba(124,58,237,0.08); margin: 6px 0;
+        }
+
         .form-note {
-            margin-top: 16px;
-            color: var(--muted);
-            font-size: .92rem;
+            margin-top: 16px; color: var(--muted); font-size: 0.9rem; line-height: 1.55;
         }
-        .actions {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
+        .form-note strong { color: var(--text); font-weight: 600; }
+
+        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 26px;
-            border-radius: 14px;
-            border: 1px solid transparent;
-            text-decoration: none;
-            font-weight: 800;
-            cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; padding: 14px 26px; border-radius: var(--radius-sm);
+            border: none; font: inherit; font-weight: 700; font-size: 0.97rem;
+            cursor: pointer; text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
         }
-        .btn-primary {
-            background: var(--gradient-main);
-            color: var(--white);
+        .btn:hover { transform: translateY(-2px); }
+        .btn-brand {
+            background: var(--gradient-brand); color: #fff;
+            box-shadow: 0 8px 28px rgba(139,92,246,0.36);
         }
-        .btn-secondary {
+        .btn-brand:hover { box-shadow: 0 14px 36px rgba(139,92,246,0.50); }
+        .btn-outline {
+            color: var(--text); border: 1.5px solid var(--border);
             background: transparent;
-            color: var(--navy);
-            border-color: rgba(8,29,58,.14);
         }
+        .btn-outline:hover { border-color: rgba(124,58,237,0.28); background: rgba(124,58,237,0.04); }
+
+        /* ─── FOOTER ─── */
         footer {
-            background: #030d1f;
-            color: rgba(255,255,255,.62);
-            text-align: center;
-            padding: 24px 18px;
-            font-size: .92rem;
+            background: #060412; color: rgba(255,255,255,0.38);
+            padding: 28px 24px; font-size: 0.88rem;
         }
-        @media (max-width: 760px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 16px 0;
+        .footer-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap; max-width: 960px; margin: 0 auto;
+        }
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.38); text-decoration: none;
+            transition: color 0.18s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+        /* ─── HAMBURGER ─── */
+        .hamburger {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; background: none; border: none; cursor: pointer;
+            padding: 8px; border-radius: 8px; transition: background 0.18s;
+        }
+        .hamburger:hover { background: rgba(255,255,255,0.07); }
+        .hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: rgba(255,255,255,0.85); border-radius: 2px;
+            transition: transform 0.25s, opacity 0.25s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 640px) {
+            .container { width: calc(100% - 32px); }
+            .nav { height: 64px; position: relative; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; align-items: stretch; gap: 4px;
+                position: absolute; top: 64px; left: -16px; right: -16px;
+                background: rgba(4, 2, 10, 0.98);
+                border-bottom: 1px solid rgba(139,92,246,0.2);
+                padding: 12px 16px 16px;
+                backdrop-filter: blur(20px);
             }
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .brand-logo {
-                height: 32px;
-            }
-            .panel {
-                padding: 24px;
-            }
-            .actions .btn {
-                width: 100%;
-            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 12px 16px; border-radius: 10px; font-size: 1rem; }
+            .brand-logo { height: 44px; }
+            .hero { padding: 48px 0 36px; }
+            .panel { padding: 24px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .actions { flex-direction: column; }
+            .actions .btn { width: 100%; }
+            .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container nav">
-            <a href="/" class="brand">
-                <img class="brand-logo" src="./sysnovu-logo-purpura.svg" alt="Sysnovu">
-            </a>
-            <nav class="nav-links">
-                <a href="/">Volver al inicio</a>
-                <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <span class="eyebrow">Diagnóstico inicial</span>
-            <h1>Cuéntanos dónde está la fricción y te ayudamos a definir el siguiente paso</h1>
-            <p>Este espacio está diseñado para capturar el contexto real de tu operación. Con eso podemos identificar oportunidades de automatización, integraciones o IA aplicada con mejor criterio desde el inicio.</p>
-        </div>
-    </section>
+<header class="site-header">
+    <div class="container nav">
+        <a href="/" class="brand">
+            <img class="brand-logo" src="./sysnovu-logo.png" alt="Sysnovu">
+        </a>
+        <nav class="nav-links" id="nav-menu">
+            <a href="/" onclick="closeMenu()">← Volver al inicio</a>
+            <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
 
-    <main class="container">
+<section class="hero">
+    <div class="container">
+        <span class="hero-eyebrow">Diagnóstico inicial</span>
+        <h1>Cuéntanos dónde está la fricción y te ayudamos a definir el siguiente paso</h1>
+        <p>Este espacio está diseñado para capturar el contexto real de tu operación. Con eso podemos identificar oportunidades de automatización, integraciones o IA aplicada con mejor criterio desde el inicio.</p>
+    </div>
+</section>
+
+<main class="container">
+    <div class="panel-wrap">
         <section class="panel">
             <h2>Formulario de diagnóstico</h2>
             <p class="panel-intro">Completa la información principal del caso. Al enviarlo, se abrirá tu correo con la estructura lista para mandarse a <strong>contacto@sysnovu.com</strong>.</p>
@@ -277,6 +287,7 @@
                             <option>Otro</option>
                         </select>
                     </div>
+                    <div class="form-divider"></div>
                     <div class="form-field full">
                         <label for="problema">¿Qué está pasando hoy?</label>
                         <textarea id="problema" name="Problema actual" placeholder="Describe el proceso, el cuello de botella o la tarea manual que quieres resolver" required></textarea>
@@ -308,15 +319,33 @@
                 </div>
                 <p class="form-note">Si prefieres, también puedes escribirnos directo a <strong>contacto@sysnovu.com</strong>.</p>
                 <div class="actions">
-                    <button type="submit" class="btn btn-primary">Enviar solicitud de diagnóstico</button>
-                    <a href="/" class="btn btn-secondary">Volver al inicio</a>
+                    <button type="submit" class="btn btn-brand">Enviar solicitud de diagnóstico</button>
+                    <a href="/" class="btn btn-outline">Volver al inicio</a>
                 </div>
             </form>
         </section>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Sysnovu. Automatización e IA para operaciones comerciales.</p>
-    </footer>
+<footer>
+    <div class="footer-inner">
+        <span>&copy; 2026 Sysnovu. Automatización e IA para operaciones comerciales.</span>
+        <div class="footer-links">
+            <a href="/">Inicio</a>
+            <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('nav-menu').classList.toggle('open');
+        document.getElementById('hamburger').classList.toggle('open');
+    }
+    function closeMenu() {
+        document.getElementById('nav-menu').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+    }
+</script>
 </body>
 </html>

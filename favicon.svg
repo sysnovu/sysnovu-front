@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Sysnovu">
+  <title>Sysnovu</title>
+  <defs>
+    <linearGradient id="sysnovuFavBg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="url(#sysnovuFavBg)"/>
+  <path d="M33 14 C33 9.5 27 8 22 9.6 C16 11.6 14.5 17.2 19 20 C22.6 22.3 29 23 30.6 27.2 C32.6 31.8 30 38 24 39 C19 39.9 14.6 37.4 14.6 33"
+        fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
