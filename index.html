@@ -52,9 +52,13 @@
             height: 72px; display: flex; align-items: center;
             justify-content: space-between; gap: 24px;
         }
-        .brand { display: flex; align-items: center; text-decoration: none; }
+        .brand {
+            display: flex; align-items: center; text-decoration: none;
+            padding-right: 24px;
+            border-right: 1px solid rgba(255,255,255,0.14);
+        }
         .brand-logo {
-            height: 56px; width: auto; display: block;
+            height: 72px; width: auto; display: block;
             filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.55)) brightness(1.15);
         }
         .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -514,7 +518,6 @@
             <a href="#proceso" onclick="closeMenu()">Proceso</a>
             <a href="/diagnostico">Diagnóstico</a>
         </nav>
-        <a href="/diagnostico" class="nav-cta">Solicitar diagnóstico →</a>
         <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </button>
