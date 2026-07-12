@@ -444,6 +444,24 @@
         }
         .process-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 
+        /* ─── CONTEXTUAL CTAs ─── */
+        .cta-banner {
+            padding: 32px 0;
+            border-top: 1px solid rgba(124,58,237,0.10);
+            border-bottom: 1px solid rgba(124,58,237,0.10);
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(79,70,229,0.04) 100%);
+        }
+        .cta-banner-inner {
+            display: flex; align-items: center; justify-content: space-between; gap: 32px;
+        }
+        .cta-banner-copy { flex: 1; }
+        .cta-banner-copy strong {
+            display: block; font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.12rem; font-weight: 700; color: var(--text); margin-bottom: 4px;
+        }
+        .cta-banner-copy p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.5; }
+        .cta-banner .btn { white-space: nowrap; flex-shrink: 0; }
+
         /* ─── FINAL CTA ─── */
         .final-section {
             background: linear-gradient(155deg, #0B0A1F 0%, #130D2B 55%, #0B0A1F 100%);
@@ -560,6 +578,7 @@
             .differentiators { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: 1fr; gap: 28px; }
             .panel-metrics { grid-template-columns: 1fr; }
+            .cta-banner-inner { flex-direction: column; gap: 16px; text-align: center; }
             .final-actions { flex-direction: column; }
             .final-actions .btn { width: 100%; }
             .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
@@ -886,6 +905,16 @@
     </div>
 </section>
 
+<div class="cta-banner">
+    <div class="container cta-banner-inner">
+        <div class="cta-banner-copy">
+            <strong>¿Alguno de estos servicios aplica a tu operación?</strong>
+            <p>Cuéntanos en 5 minutos cómo funciona tu empresa y te decimos exactamente por dónde empezar.</p>
+        </div>
+        <a href="/diagnostico" class="btn btn-brand">Solicitar diagnóstico</a>
+    </div>
+</div>
+
 <section class="section" id="casos">
     <div class="container">
         <span class="section-tag">Casos de uso</span>
@@ -938,6 +967,16 @@
         </div>
     </div>
 </section>
+
+<div class="cta-banner">
+    <div class="container cta-banner-inner">
+        <div class="cta-banner-copy">
+            <strong>¿Reconoces alguno de estos escenarios en tu empresa?</strong>
+            <p>No hace falta tener todo claro. Con el contexto de tu operación, identificamos las oportunidades concretas.</p>
+        </div>
+        <a href="/diagnostico" class="btn btn-ghost">Cuéntanos tu caso →</a>
+    </div>
+</div>
 
 <section class="section process-section" id="proceso">
     <div class="container">
