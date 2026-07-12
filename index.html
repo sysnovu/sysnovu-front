@@ -496,19 +496,61 @@
 
         /* ─── FOOTER ─── */
         footer {
-            background: #060412; color: rgba(255,255,255,0.38);
-            padding: 28px 24px; font-size: 0.88rem;
+            background: #060412; color: rgba(255,255,255,0.45);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(139,92,246,0.14);
         }
-        .footer-inner {
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 16px; flex-wrap: wrap; max-width: 1180px; margin: 0 auto;
+        .footer-body {
+            display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 48px; padding: 56px 0 48px;
         }
-        .footer-links { display: flex; gap: 20px; }
-        .footer-links a {
-            color: rgba(255,255,255,0.38); text-decoration: none;
-            transition: color 0.18s;
+        .footer-brand-logo {
+            height: 44px; width: auto; display: block; margin-bottom: 14px;
+            filter: brightness(1.1) drop-shadow(0 0 6px rgba(167,139,250,0.35));
         }
-        .footer-links a:hover { color: rgba(255,255,255,0.7); }
+        .footer-desc {
+            font-size: 0.86rem; color: rgba(255,255,255,0.45);
+            line-height: 1.65; margin-bottom: 20px; max-width: 260px;
+        }
+        .footer-socials { display: flex; gap: 10px; }
+        .footer-social {
+            width: 34px; height: 34px; border-radius: 8px;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+        }
+        .footer-social:hover { background: rgba(139,92,246,0.2); color: #C4B5FD; }
+        .footer-col-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.09em;
+            text-transform: uppercase; color: rgba(255,255,255,0.32);
+            margin-bottom: 18px;
+        }
+        .footer-nav { display: flex; flex-direction: column; gap: 11px; }
+        .footer-nav a {
+            color: rgba(255,255,255,0.52); text-decoration: none;
+            font-size: 0.88rem; transition: color 0.18s;
+        }
+        .footer-nav a:hover { color: #C4B5FD; }
+        .footer-contact { display: flex; flex-direction: column; gap: 11px; }
+        .footer-contact-item {
+            display: flex; align-items: center; gap: 9px;
+            color: rgba(255,255,255,0.52); font-size: 0.88rem;
+        }
+        .footer-contact-item a {
+            color: rgba(255,255,255,0.52); text-decoration: none; transition: color 0.18s;
+        }
+        .footer-contact-item a:hover { color: #C4B5FD; }
+        .footer-contact-item svg { flex-shrink: 0; opacity: 0.5; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 18px 0;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            font-size: 0.8rem; color: rgba(255,255,255,0.28);
+        }
+        .footer-bottom a { color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.15s; }
+        .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1040px) {
@@ -588,7 +630,9 @@
             .cta-banner-inner { flex-direction: column; gap: 16px; text-align: center; }
             .final-actions { flex-direction: column; }
             .final-actions .btn { width: 100%; }
-            .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-body { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 32px; }
+            .footer-desc { max-width: 100%; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 
             /* Strip */
             .strip-wrap { margin-top: -24px; }
@@ -1061,11 +1105,53 @@
 </section>
 
 <footer>
-    <div class="footer-inner">
-        <span>&copy; 2026 Sysnovu. Automatización e IA para operaciones comerciales.</span>
-        <div class="footer-links">
-            <a href="/diagnostico">Diagnóstico</a>
-            <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
+    <div class="container">
+        <div class="footer-body">
+            <div>
+                <img class="footer-brand-logo" src="./sysnovu-logo.png" alt="Sysnovu">
+                <p class="footer-desc">Automatizamos operaciones comerciales con IA. Integraciones, flujos y agentes que hacen que tu empresa opere más rápido y con más control.</p>
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/company/sysnovu" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="mailto:contacto@sysnovu.com" class="footer-social" aria-label="Email">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-title">Navegación</div>
+                <nav class="footer-nav">
+                    <a href="/#servicios">Servicios</a>
+                    <a href="/#casos">Casos de uso</a>
+                    <a href="/#proceso">Proceso</a>
+                    <a href="/diagnostico">Solicitar diagnóstico</a>
+                </nav>
+            </div>
+            <div>
+                <div class="footer-col-title">Contacto</div>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:contacto@sysnovu.com">contacto@sysnovu.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        <a href="https://www.sysnovu.com" target="_blank" rel="noopener">www.sysnovu.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Colombia · Remoto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Sysnovu. Todos los derechos reservados.</span>
+            <div style="display:flex;gap:20px">
+                <a href="/diagnostico">Diagnóstico</a>
+                <a href="mailto:contacto@sysnovu.com">Contacto</a>
+            </div>
         </div>
     </div>
 </footer>
