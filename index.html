@@ -358,6 +358,9 @@
         .dark-band .section-tag { background: rgba(167,139,250,0.13); color: #C4B5FD; }
         .dark-band h2.section-title { color: #fff; }
         .dark-band .section-sub { color: rgba(255,255,255,0.62); }
+        .dark-band .process-card h3 { color: rgba(255,255,255,0.92); }
+        .dark-band .process-card p { color: rgba(255,255,255,0.56); }
+        .dark-band .process-grid::before { opacity: 0.38; }
 
         /* ─── SERVICES ─── */
         .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
@@ -418,7 +421,7 @@
         }
 
         /* ─── PROCESS ─── */
-        .process-section { background: var(--white); }
+        .process-section { background: var(--dark); }
         .process-grid {
             display: grid; grid-template-columns: repeat(4,1fr);
             gap: 0; position: relative;
@@ -767,7 +770,7 @@
     </div>
 </div>
 
-<section class="section">
+<section class="section" style="background:#fff">
     <div class="container">
         <span class="section-tag">Ventaja operativa</span>
         <h2 class="section-title center">Tecnología aplicada a eficiencia operativa</h2>
@@ -945,7 +948,7 @@
     </div>
 </div>
 
-<section class="section" id="casos">
+<section class="section" id="casos" style="background:#fff">
     <div class="container">
         <span class="section-tag">Casos de uso</span>
         <h2 class="section-title center">Dónde genera valor rápido</h2>
@@ -1008,7 +1011,7 @@
     </div>
 </div>
 
-<section class="section process-section" id="proceso">
+<section class="section process-section dark-band" id="proceso">
     <div class="container">
         <span class="section-tag">Proceso</span>
         <h2 class="section-title center">Cómo trabajamos</h2>
